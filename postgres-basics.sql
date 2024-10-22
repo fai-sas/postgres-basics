@@ -98,12 +98,27 @@ VALUES (1, 'Next.js', 3),
 
 -- Insert data into the enrollment table:
 INSERT INTO
-    enrollment (
-        enrollment_id,
-        student_id,
-        course_id
+    enrollment (student_id, course_id)
+VALUES (1, 1),
+    (1, 2),
+    (2, 1),
+    (3, 2);
+
+-- Query 1: Insert a new student
+INSERT INTO
+    students (
+        student_name,
+        age,
+        email,
+        frontend_mark,
+        backend_mark,
+        status
     )
-VALUES (1, 1, 1),
-    (2, 1, 2),
-    (3, 2, 1),
-    (4, 3, 2);
+VALUES (
+        'Cole Palmer',
+        22,
+        'cole@palmer.com',
+        48,
+        52,
+        NULL
+    );
