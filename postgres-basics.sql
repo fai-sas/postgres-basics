@@ -123,7 +123,7 @@ VALUES (
         NULL
     );
 
---Query 2:Retrieve the names of all students enrolled in the course titled 'Next.js'
+--Query 2: Retrieve the names of all students enrolled in the course titled 'Next.js'
 SELECT s.student_name
 FROM
     students s
@@ -131,3 +131,12 @@ FROM
     JOIN courses c ON e.course_id = c.course_id
 WHERE
     c.course_name = 'Next.js';
+
+-- Query 3: Update the status of the student with the highest total marks to 'Awarded'
+UPDATE students
+SET
+    status = 'Awarded'
+WHERE (frontend_mark + backend_mark) = (
+        SELECT MAX(frontend_mark + backend_mark)
+        FROM students
+    );
